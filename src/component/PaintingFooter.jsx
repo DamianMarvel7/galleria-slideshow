@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import iconBack from "../assets/shared/icon-back-button.svg";
-import iconNext from "../assets/shared/icon-next-button.svg";
-import { Link, useNavigate } from "react-router-dom";
+import iconBack from "/assets/shared/icon-back-button.svg";
+import iconNext from "/assets/shared/icon-next-button.svg";
+import { useNavigate } from "react-router-dom";
 
 const PaintingFooter = ({ painting }) => {
   const navigate = useNavigate();

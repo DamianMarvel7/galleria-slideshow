@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import starryNight from "../assets/starry-night/thumbnail.jpg";
-import girlWith from "../assets/girl-with-pearl-earring/thumbnail.jpg";
 import jsonFile from "../data.json";
 import ThumbnailDetail from "./ThumbnailDetail";
 import { getGroupElements } from "../helper";

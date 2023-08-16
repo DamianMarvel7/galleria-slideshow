@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 
 const ViewImage = ({ painting }) => {
-  const MyImage = import(`.${painting.images.gallery}`);
-  const [imageSource, setImageSource] = useState();
-
-  MyImage.then((module) => {
-    setImageSource(module.default);
-  }).catch((error) => {
-    console.error("Error loading image:", error);
-  });
-
   const closeImage = () => {
     const viewImage = document.querySelector(".view-image");
     viewImage.style.display = "none";
@@ -19,7 +10,7 @@ const ViewImage = ({ painting }) => {
   return (
     <div className="view-image">
       <p onClick={closeImage}>CLOSE</p>
-      <img src={imageSource} alt="" />
+      <img src={painting.images.gallery} alt="" />
     </div>
   );
 };

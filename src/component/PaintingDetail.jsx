@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import jsonFile from "../data.json";
-import iconViewImage from "../assets/shared/icon-view-image.svg";
+import iconViewImage from "/assets/shared/icon-view-image.svg";
 import PaintingFooter from "./PaintingFooter";
 import ViewImage from "./ViewImage";
 
@@ -22,18 +22,6 @@ const PaintingDetail = () => {
           ? painting.images.hero.small
           : painting.images.hero.large;
       setPaintingSource(imageModule);
-      // const imageModule =
-      //   window.innerWidth < 768
-      //     ? import(`.${painting.images.hero.small}`)
-      //     : import(`.${painting.images.hero.large}`);
-
-      // imageModule
-      //   .then((module) => {
-      //     setPaintingSource(module.default);
-      //   })
-      //   .catch((error) => {
-      //     console.error("Error loading image:", error);
-      //   });
     };
 
     updateVariableBasedOnScreenWidth();
@@ -44,17 +32,6 @@ const PaintingDetail = () => {
       window.removeEventListener("resize", updateVariableBasedOnScreenWidth);
     };
   }, [painting.images]);
-
-  // useEffect(() => {
-  //   const artistImage = import(`.${painting.artist.image}`);
-  //   artistImage
-  //     .then((module) => {
-  //       setArtistSource(module.default);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error loading image:", error);
-  //     });
-  // }, [painting.artist.image]);
 
   const handleView = () => {
     const viewImage = document.querySelector(".view-image");

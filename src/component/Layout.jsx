@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logo from "../assets/shared/logo.svg";
+import logo from "/assets/shared/logo.svg";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 const Layout = () => {
