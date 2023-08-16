@@ -9,7 +9,7 @@ const ViewImage = ({ painting }) => {
   return (
     <div className="view-image">
       <p onClick={closeImage}>CLOSE</p>
-      <img src={`src/${painting.images.gallery}`} alt="" />
+      <img src={`${painting.images.gallery}`} alt="" />
     </div>
   );
 };
