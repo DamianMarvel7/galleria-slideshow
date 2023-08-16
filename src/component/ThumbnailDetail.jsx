@@ -2,14 +2,20 @@ import React, { lazy, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const ThumbnailDetail = ({ painting }) => {
-  const MyImage = import(`.${painting.images.thumbnail}`);
   const [imageSource, setImageSource] = useState();
 
-  MyImage.then((module) => {
-    setImageSource(module.default);
-  }).catch((error) => {
-    console.error("Error loading image:", error);
-  });
+  useEffect(() => {
+    const loadImage = async () => {
+      try {
+        const module = await import(`.${painting.images.thumbnail}`);
+        setImageSource(module.default);
+      } catch (error) {
+        console.error("Error loading image:", error);
+      }
+    };
+
+    loadImage();
+  }, [painting.images.thumbnail]);
 
   return (
     <Link to={`${painting.id}`}>
