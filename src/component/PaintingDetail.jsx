@@ -19,16 +19,21 @@ const PaintingDetail = () => {
     const updateVariableBasedOnScreenWidth = () => {
       const imageModule =
         window.innerWidth < 768
-          ? import(`.${painting.images.hero.small}`)
-          : import(`.${painting.images.hero.large}`);
+          ? painting.images.hero.small
+          : painting.images.hero.large;
+      setPaintingSource(imageModule);
+      // const imageModule =
+      //   window.innerWidth < 768
+      //     ? import(`.${painting.images.hero.small}`)
+      //     : import(`.${painting.images.hero.large}`);
 
-      imageModule
-        .then((module) => {
-          setPaintingSource(module.default);
-        })
-        .catch((error) => {
-          console.error("Error loading image:", error);
-        });
+      // imageModule
+      //   .then((module) => {
+      //     setPaintingSource(module.default);
+      //   })
+      //   .catch((error) => {
+      //     console.error("Error loading image:", error);
+      //   });
     };
 
     updateVariableBasedOnScreenWidth();
@@ -40,16 +45,16 @@ const PaintingDetail = () => {
     };
   }, [painting.images]);
 
-  useEffect(() => {
-    const artistImage = import(`.${painting.artist.image}`);
-    artistImage
-      .then((module) => {
-        setArtistSource(module.default);
-      })
-      .catch((error) => {
-        console.error("Error loading image:", error);
-      });
-  }, [painting.artist.image]);
+  // useEffect(() => {
+  //   const artistImage = import(`.${painting.artist.image}`);
+  //   artistImage
+  //     .then((module) => {
+  //       setArtistSource(module.default);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error loading image:", error);
+  //     });
+  // }, [painting.artist.image]);
 
   const handleView = () => {
     const viewImage = document.querySelector(".view-image");
@@ -71,7 +76,7 @@ const PaintingDetail = () => {
             <p className={headingClass}>{painting.name}</p>
             <p className="subhead1">{painting.artist.name}</p>
           </div>
-          <img src={artistSource} alt="" className="author-img" />
+          <img src={painting.artist.image} alt="" className="author-img" />
         </div>
         <ViewImage painting={painting} />
         <div className="painting-desc">
