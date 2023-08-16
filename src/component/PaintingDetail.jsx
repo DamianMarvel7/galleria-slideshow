@@ -19,8 +19,8 @@ const PaintingDetail = () => {
     const updateVariableBasedOnScreenWidth = () => {
       const imageModule =
         window.innerWidth < 768
-          ? `src/${painting.images.hero.small}`
-          : `src/${painting.images.hero.large}`;
+          ? `${painting.images.hero.small}`
+          : `${painting.images.hero.large}`;
 
       setPaintingSource(imageModule);
     };
@@ -54,11 +54,7 @@ const PaintingDetail = () => {
             <p className={headingClass}>{painting.name}</p>
             <p className="subhead1">{painting.artist.name}</p>
           </div>
-          <img
-            src={`src/${painting.artist.image}`}
-            alt=""
-            className="author-img"
-          />
+          <img src={painting.artist.image} alt="" className="author-img" />
         </div>
         <ViewImage painting={painting} />
         <div className="painting-desc">
