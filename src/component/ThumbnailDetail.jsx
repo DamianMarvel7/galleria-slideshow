@@ -24,11 +24,7 @@ const ThumbnailDetail = ({ painting }) => {
   return (
     <Link to={`${painting.id}`}>
       <div className="thumbnail">
-        <img
-          src={`${painting.images.thumbnail}`}
-          alt=""
-          className="thumbnail-img"
-        />
+        <img src={painting.images.thumbnail} alt="" className="thumbnail-img" />
         <div
           className="thumbnail-desc flexcol flow"
           style={{ "--flow-spacer": ".5em" }}
