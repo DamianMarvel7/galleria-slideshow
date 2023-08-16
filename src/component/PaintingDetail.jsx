@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import jsonFile from "../data.json";
-import iconViewImage from "/assets/shared/icon-view-image.svg";
+import iconViewImage from "../assets/shared/icon-view-image.svg";
 import PaintingFooter from "./PaintingFooter";
 import ViewImage from "./ViewImage";
 
@@ -19,8 +19,9 @@ const PaintingDetail = () => {
     const updateVariableBasedOnScreenWidth = () => {
       const imageModule =
         window.innerWidth < 768
-          ? painting.images.hero.small
-          : painting.images.hero.large;
+          ? `src/${painting.images.hero.small}`
+          : `src/${painting.images.hero.large}`;
+
       setPaintingSource(imageModule);
     };
 
@@ -53,7 +54,11 @@ const PaintingDetail = () => {
             <p className={headingClass}>{painting.name}</p>
             <p className="subhead1">{painting.artist.name}</p>
           </div>
-          <img src={painting.artist.image} alt="" className="author-img" />
+          <img
+            src={`src/${painting.artist.image}`}
+            alt=""
+            className="author-img"
+          />
         </div>
         <ViewImage painting={painting} />
         <div className="painting-desc">
